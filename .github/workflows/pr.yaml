@@ -17,5 +17,5 @@ jobs:
         uses: microsoft/setup-msbuild@v1.1
         with:
           msbuild-architecture: x64
-	- name: Build
-	  run: msbuild avatar-mod-winrt.vcxproj -t:rebuild -property:Configuration=Debug -interactive:False -nologo
+      - name: Build
+        run: msbuild avatar-mod-winrt.vcxproj -t:rebuild -property:Configuration=Debug -interactive:False -nologo
