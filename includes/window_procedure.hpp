@@ -6,7 +6,7 @@
 
 #define WINDOW_CLASS_NAME L"AvatarWindowClass"
 
-LRESULT window_procedure(HWND window_handle, UINT message, WPARAM wide_params, LPARAM long_params);
+LRESULT CALLBACK window_procedure(HWND window_handle, UINT message, WPARAM wide_params, LPARAM long_params);
 
 int register_window_class(HINSTANCE current_process);
 

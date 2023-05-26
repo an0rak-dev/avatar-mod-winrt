@@ -2,7 +2,7 @@
 
 static bool winrt_class_initiliazed = false;
 
-LRESULT window_procedure(HWND window_handle, UINT message, WPARAM wide_params, LPARAM long_params) {
+LRESULT CALLBACK window_procedure(HWND window_handle, UINT message, WPARAM wide_params, LPARAM long_params) {
 	switch (message) {
 	case WM_CLOSE:
 		PostQuitMessage(0);
