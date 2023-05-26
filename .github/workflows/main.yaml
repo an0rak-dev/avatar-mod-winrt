@@ -1,7 +1,9 @@
-name: Validate PullRequest
+name: Build Main
 
 on:
-  pull_request:
+  push:
+    branches:
+      - main
 
 
 jobs:
