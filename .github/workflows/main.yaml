@@ -1,7 +1,10 @@
-name: Validate PullRequest
+name: Build Main
 
 on:
-  pull_request:
+  push:
+    branches:
+      - main
+
 
 jobs:
   fetch-dependencies:
@@ -12,7 +15,7 @@ jobs:
           uses: actions/checkout@v3
           with:
             repository: an0rak-dev/avatar-engine
-            ref: main # On PR testing, we match the latest code of the engine
+            ref: main # On main build, we want to match the latest available version of the engine
             path: avatar-engine
         - name: Save engine includes
           uses: actions/upload-artifact@v3
