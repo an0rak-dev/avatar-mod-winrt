@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\.github">
+      <UniqueIdentifier>{8d5f73b4-0a3f-4170-9b80-b3e592778fe6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\.github\workflows">
+      <UniqueIdentifier>{748720e3-6a5c-4020-8bd3-0d360cced56e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\window_procedure.hpp">
@@ -26,5 +32,13 @@
     <ClCompile Include="src\winrt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".github\workflows\main.yaml">
+      <Filter>Resource Files\.github\workflows</Filter>
+    </None>
+    <None Include=".github\workflows\pr.yaml">
+      <Filter>Resource Files\.github\workflows</Filter>
+    </None>
   </ItemGroup>
 </Project>

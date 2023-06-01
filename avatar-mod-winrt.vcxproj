@@ -137,6 +137,10 @@
     <ClCompile Include="src\window_procedure.cpp" />
     <ClCompile Include="src\winrt.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".github\workflows\main.yaml" />
+    <None Include=".github\workflows\pr.yaml" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
