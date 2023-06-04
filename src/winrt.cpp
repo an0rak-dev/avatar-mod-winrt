@@ -70,3 +70,7 @@ void winrt_wait_next_event(winrt_platform& winrt) {
 	DispatchMessageW(&msg);
 	winrt.last_event = WINRT_NONE;
 }
+
+extern HWND winrt_get_window_handle(winrt_platform& winrt) {
+	return winrt.specifics->handle;
+}
