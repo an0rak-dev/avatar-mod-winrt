@@ -1,0 +1,67 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "[Platform - WinRT] Build",
+            "dependsOn": "[Platform - WinRT] Compile",
+            "command": "lib.exe",
+            "args": [
+                "/nologo",
+                "/out:${workspaceFolder}\\Bin\\avatar-mod-winrt.lib",
+                "user32.lib",
+                "*.obj"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}\\Bin"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Build the Avatar WinRT Platform static library."
+        },
+        {
+            "type": "cppbuild",
+            "label": "[Platform - WinRT] Compile",
+            "dependsOn": "[Platform - WinRT] Prepare",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "/FC",
+                "/nologo",
+                "/c",
+                "/DUNICODE",
+                "/I${workspaceFolder}\\..\\avatar-engine\\includes",
+                "/I${workspaceFolder}\\includes",
+                "${workspaceFolder}\\src\\*.cpp"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}\\Bin"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "Compile all the sources of the WinRT Platform module."
+        },
+        {
+          "type":"shell",
+          "label": "[Platform - WinRT] Prepare",
+          "windows":{
+            "command": "cmd.exe",
+            "args": [
+                "/C",
+                "${workspaceFolder}\\.vscode\\prepare.bat"
+            ]
+          },
+        }
+    ],
+    "version": "2.0.0"
+}
