@@ -5,6 +5,7 @@ on:
 
 env:
   VCINSTALL: "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC"
+  DEFINES: "/DUNICODE"
 jobs:
   check-format:
     name: Check source code format
@@ -44,9 +45,13 @@ jobs:
           path: avatar-engine/includes
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v1.1
         with:
-          msbuild-architecture: x64
-      - name: Build
-        run: msbuild avatar-mod-winrt/avatar-mod-winrt.vcxproj -t:rebuild -property:Configuration=Debug -interactive:False -nologo
+          path: avatar-mod-winrt
+      - name: Compile
+        shell: cmd
+        run: |
+          call "%VCINSTALL%\\Auxiliary\\Build\\vcvarsall.bat" x64
+          cl.exe /Zi /EHsc /nologo /FC /c %DEFINES% /Iavatar-engine\includes /Iavatar-mod-winrt\includes avatar-mod-winrt\src\*.cpp
+          if %errorlevel% neq 0 exit /b 1
+          lib.exe /nologo /out:avatar-mod-winrt.lib user32.lib *.obj
+          if %errorlevel% neq 0 exit /b 1
