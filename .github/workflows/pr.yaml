@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup clang-tidy
-        run: apt-get update && apt-get install -y clang-tidy-15
+        run: sudo apt-get update && sudo apt-get install -y clang-tidy-15
       - name: Lint the code
         run: clang-tidy-15 --config-file=misc/.clang-tidy src/*
   check-format:
