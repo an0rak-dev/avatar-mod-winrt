@@ -8,14 +8,14 @@ env:
   DEFINES: "/DUNICODE"
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup clang-tidy
-        run: sudo apt-get update && sudo apt-get install -y clang-tidy-15
       - name: Lint the code
-        run: clang-tidy-15 --config-file=misc/.clang-tidy src/*
+        shell: cmd
+        run: |
+          "%VCINSTALL%\Tools\Llvm\bin\clang-tidy.exe" --config-file=misc\.clang-tidy src\*
   check-format:
     name: Check source code format
     runs-on: windows-latest
