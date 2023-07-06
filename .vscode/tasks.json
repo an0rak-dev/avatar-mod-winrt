@@ -73,7 +73,10 @@
               "command": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\Llvm\\bin\\clang-tidy.exe",
               "args": [
                   "--config-file=${workspaceFolder}\\misc\\.clang-tidy",
-                  "${workspaceFolder}\\src\\*"
+                  "${workspaceFolder}\\src\\*",
+                  "--",
+                  "-I${workspaceFolder}\\includes",
+                  "-I${workspaceFolder}\\..\\avatar-engine\\includes"
               ]
             },
         },
