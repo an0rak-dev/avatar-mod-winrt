@@ -1,6 +1,6 @@
 #include <window_procedure.hpp>
 
-static bool winrt_class_initiliazed = false;
+static bool winrt_class_initiliazed = false; // NOLINT
 
 LRESULT CALLBACK window_procedure(HWND window_handle, UINT message, WPARAM wide_params, LPARAM long_params) {
 	switch (message) {
