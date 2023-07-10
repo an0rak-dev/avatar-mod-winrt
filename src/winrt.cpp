@@ -29,7 +29,7 @@ void winrt_destroy(winrt_platform *winrt) {
 	}
 }
 
-int winrt_initalize(winrt_platform &winrt, const wchar_t *app_name, unsigned int width, unsigned int height) {
+int winrt_initalize(winrt_platform &winrt, const wchar_t *app_name, int width, int height) {
 	HRESULT   result          = S_OK;
 	HINSTANCE current_process = GetModuleHandle(NULL);
 	if (0 != register_window_class(current_process)) {
@@ -50,7 +50,6 @@ int winrt_initalize(winrt_platform &winrt, const wchar_t *app_name, unsigned int
 		NULL                 // No additional params
 	);
 	if (NULL == winrt.specifics->handle) {
-		fprintf(stderr, "Unable to create the Window : (code : %d)\n", GetLastError());
 		return 2;
 	}
 	return 0;

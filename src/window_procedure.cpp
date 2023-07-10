@@ -3,13 +3,11 @@
 static bool winrt_class_initiliazed = false; // NOLINT
 
 LRESULT CALLBACK window_procedure(HWND window_handle, UINT message, WPARAM wide_params, LPARAM long_params) {
-	switch (message) {
-		case WM_CLOSE:
-			PostQuitMessage(0);
-			return 0;
-		default:
-			return DefWindowProc(window_handle, message, wide_params, long_params);
+	if (message == WM_CLOSE) {
+		PostQuitMessage(0);
+		return 0;
 	}
+	return DefWindowProc(window_handle, message, wide_params, long_params);
 }
 
 int register_window_class(HINSTANCE current_process) {
@@ -30,7 +28,6 @@ int register_window_class(HINSTANCE current_process) {
 		};
 
 		if (0 == RegisterClassEx(&window_class)) {
-			fprintf(stderr, "Unable to Register the window class : (code : %d)\n", GetLastError());
 			return 1;
 		}
 		winrt_class_initiliazed = true;
