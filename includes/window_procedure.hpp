@@ -1,8 +1,8 @@
 #ifndef AVATAR_MOD_WINRT_WINDOW_PROCEDURE
 #define AVATAR_MOD_WINRT_WINDOW_PROCEDURE
 
-#include <stdio.h>
 #include <Windows.h>
+#include <stdio.h>
 
 #define WINDOW_CLASS_NAME L"AvatarWindowClass"
 
